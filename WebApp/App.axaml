@@ -2,11 +2,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="WebApp.App"
              xmlns:local="using:WebApp"
+             xmlns:viewModels="clr-namespace:WebApp.ViewModels"
              RequestedThemeVariant="Dark">
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
-  
+    
+    <Application.Resources>
+        <viewModels:StringToBooleanConverter x:Key="StringToBooleanConverter"/>
+    </Application.Resources>
+    
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>

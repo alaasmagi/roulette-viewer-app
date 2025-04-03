@@ -6,126 +6,74 @@
         xmlns:views="clr-namespace:WebApp.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="WebApp.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
+        x:DataType="vm:MainViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="WebApp"
         Background="#2D3047">
 
     <Design.DataContext>
-        <vm:MainWindowViewModel/>
+        <vm:MainViewModel/>
     </Design.DataContext>   
      <Grid RowDefinitions="Auto, Auto, Auto, Auto" HorizontalAlignment="Center" VerticalAlignment="Center">
     <TextBlock Text="Last 10 results" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,10,0,0" />
 
     <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-       <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
-      <Border Width="35" Padding="5" Margin="5">
-        <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5" IsVisible="True">
-          <TextBlock Text="x45" />
-        </Border>
-      </Border>
+      <ItemsControl ItemsSource="{Binding Multipliers}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal"/>
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Border Background="LightGray" CornerRadius="5" Width="35" Padding="5" Margin="5">
+              <TextBlock Text="{Binding}" HorizontalAlignment="Center"/>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
     </StackPanel>
 
     <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-      <Border Background="Red" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="3" Foreground="White" TextAlignment="Center" />
-      </Border>
-      <Border Background="Orange" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="6" Foreground="White" TextAlignment="Center" />
-      </Border>
-      <Border Background="Yellow" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="0" Foreground="Black" TextAlignment="Center"  />
-      </Border>
-      <Border Background="Green" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="19" Foreground="White" TextAlignment="Center" />
-      </Border>
-      <Border Background="Blue" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="15" Foreground="White" TextAlignment="Center" />
-      </Border>
-      <Border Background="Indigo" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="24" Foreground="White" TextAlignment="Center" />
-      </Border>
-      <Border Background="Violet" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="6" Foreground="White" TextAlignment="Center" />
-      </Border>
-      <Border Background="LightGreen" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="18" Foreground="Black" TextAlignment="Center" />
-      </Border>
-      <Border Background="Pink" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="36" Foreground="Black" TextAlignment="Center" />
-      </Border>
-      <Border Background="LightBlue" CornerRadius="5" Width="35" Padding="5" Margin="5">
-        <TextBlock Text="35" Foreground="Black" TextAlignment="Center" />
-      </Border>
+      <ItemsControl ItemsSource="{Binding LastResults}">
+        <ItemsControl.ItemsPanel>
+          <ItemsPanelTemplate>
+            <StackPanel Orientation="Horizontal"/>
+          </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+          <DataTemplate>
+            <Border Background="Blue" CornerRadius="5" Width="35" Padding="5" Margin="5">
+              <TextBlock Text="{Binding}" Foreground="White" HorizontalAlignment="Center"/>
+            </Border>
+          </DataTemplate>
+        </ItemsControl.ItemTemplate>
+      </ItemsControl>
     </StackPanel>
 
     <Grid Grid.Row="3" ColumnDefinitions="*,*" Margin="0,20,0,0" HorizontalAlignment="Center">
       <StackPanel Grid.Column="0" Margin="0,0,15,0">
-        <TextBlock Text="Commands" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" />
-        <Button Content="Add random result" Margin="5" Width="150" HorizontalContentAlignment="Center"/>
-        <Button Content="Show notification" Margin="5" Width="150" HorizontalContentAlignment="Center"/>
+        <TextBlock Text="Commands" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+        <Button Content="Add random result" Margin="5" Width="150" Command="{Binding AddRandomResultCommand}" />
+        <Button Content="Show notification" Margin="5" Width="150" Command="{Binding ShowNotificationCommand}" />
       </StackPanel>
 
       <StackPanel Grid.Column="1" Margin="15,0,0,0">
         <TextBlock Text="Statistics" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" />
         <Grid ColumnDefinitions="*,*">
           <TextBlock Grid.Column="0" Text="Active Players" HorizontalAlignment="Center" Margin="10"/>
-          <TextBlock Grid.Column="1" Text="Biggest Multiplier" HorizontalAlignment="Center" Margin="10" />
+          <TextBlock Grid.Column="1" Text="Biggest Multiplier" HorizontalAlignment="Center" Margin="10"/>
         </Grid>
         <Grid ColumnDefinitions="*,*">
-          <TextBlock Grid.Column="0" Text="100" HorizontalAlignment="Center" />
-          <TextBlock Grid.Column="1" Text="x1000" HorizontalAlignment="Center" />
+          <TextBlock Grid.Column="0" Text="{Binding ActivePlayers}" HorizontalAlignment="Center"/>
+          <TextBlock Grid.Column="1" Text="{Binding BiggestMultiplier}" HorizontalAlignment="Center"/>
         </Grid>
       </StackPanel>
     </Grid>
 
-    <StackPanel Grid.Row="3" Margin="0,125,0,0" VerticalAlignment="Bottom">
-      <TextBlock Text="Notification" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center" />
-      <TextBlock Text="Player VIP PlayerName has joined the table." HorizontalAlignment="Center" />
+    <StackPanel Grid.Row="3" Margin="0,125,0,0" VerticalAlignment="Bottom" IsVisible="{Binding Notification, Converter={StaticResource StringToBooleanConverter}}">
+      <TextBlock Text="Notification" FontSize="16" FontWeight="Bold" HorizontalAlignment="Center"/>
+      <TextBlock Text="{Binding Notification}" HorizontalAlignment="Center"/>
     </StackPanel>
   </Grid>
 </Window>
